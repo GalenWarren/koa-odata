@@ -22,10 +22,36 @@
   "homepage": "https://github.com/GalenWarren/koa-odata#readme",
   "jspm": {
     "directories": {},
+    "dependencies": {
+      "GalenWarren/node-odata-generic": "github:GalenWarren/node-odata-generic@master",
+      "koa-router": "npm:koa-router@^5.1.2"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.21",
       "babel-runtime": "npm:babel-runtime@^5.8.20",
       "core-js": "npm:core-js@^1.0.0"
     }
+  },
+  "devDependencies": {
+    "bluebird": "^2.10.0",
+    "chai": "^3.2.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-changed": "^1.3.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.3",
+    "gulp-plumber": "^1.0.1",
+    "gulp-shell": "^0.4.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-yuidoc": "^0.1.2",
+    "harmonize": "^1.4.4",
+    "jshint-stylish": "^2.0.1",
+    "object.assign": "^4.0.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.2",
+    "systemjs": "^0.18.17",
+    "vinyl-paths": "^2.0.0"
   }
 }
