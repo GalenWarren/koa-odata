@@ -23,13 +23,13 @@ function build( modules ) {
 
 // build system and umd modules
 gulp.task("build-system", build("system"));
-//gulp.task("build-common", build("common"));
+gulp.task("build-common", build("common"));
 
 // build sequence
 gulp.task('build', function(callback) {
   return runSequence(
     "clean",
-    [ "build-system" ],
+    [ "build-system", "build-common" ],
     callback
   );
 });

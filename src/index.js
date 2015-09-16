@@ -1,5 +1,9 @@
 import {entity} from "GalenWarren/node-odata-generic";
 
-export class Test {
+/**
+* The middleware function for koa
+*/
+export default function* odata() {
+
 
 }
