@@ -1,0 +1,31 @@
+{
+  "name": "koa-odata",
+  "version": "0.0.1",
+  "description": "OData plugin for Koa",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalenWarren/koa-odata.git"
+  },
+  "keywords": [
+    "koa",
+    "odata"
+  ],
+  "author": "Galen Warren",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/GalenWarren/koa-odata/issues"
+  },
+  "homepage": "https://github.com/GalenWarren/koa-odata#readme",
+  "jspm": {
+    "directories": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.21",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "core-js": "npm:core-js@^1.0.0"
+    }
+  }
+}
