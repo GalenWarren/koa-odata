@@ -1,0 +1,43 @@
+{
+  transpile: {
+
+    source: "src/",
+    target: "dist/",
+    modules: ["common"],
+
+    group: {
+
+      babel: {
+
+        moduleIds: false,
+        comments: false,
+        compact: false,
+        stage:2,
+        optional: [
+            "es7.decorators",
+            "es7.classProperties",
+            "es7.asyncFunctions"
+        ],
+        blacklist: [
+            "regenerator"
+        ]
+
+      }
+
+    }
+
+  },
+
+  debug: {
+
+    target: "debug.js"
+
+  },
+
+  doc: {
+
+    name: "api.json"
+
+  }
+
+}

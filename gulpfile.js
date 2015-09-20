@@ -4,6 +4,6 @@ require("harmonize")();
 // load systemjs, etc
 require("./init");
 
-// all gulp tasks are located in the ./build/tasks directory
-// gulp configuration is in files in ./build directory
-require('require-dir')('build/tasks');
+// register the various tasks
+require("json5/lib/require");
+require("shabeco-build-tools")(require("./build.json5"));
