@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.odata = odata;
 
-function odata() {
+function _interopExportWildcard(obj, defaults) { var newObj = defaults({}, obj); delete newObj["default"]; return newObj; }
 
-  return function* () {
-    this.body = 'Hello OData';
-  };
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFHTyxTQUFTLEtBQUssR0FBRzs7QUFFdEIsU0FBTyxhQUFZO0FBQ2pCLFFBQUksQ0FBQyxJQUFJLEdBQUcsYUFBYSxDQUFDO0dBQzNCLENBQUM7Q0FFSCIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxyXG4qIFRoZSBtaWRkbGV3YXJlIGZ1bmN0aW9uIGZvciBrb2FcclxuKi9cclxuZXhwb3J0IGZ1bmN0aW9uIG9kYXRhKCkge1xyXG5cclxuICByZXR1cm4gZnVuY3Rpb24qKCkge1xyXG4gICAgdGhpcy5ib2R5ID0gJ0hlbGxvIE9EYXRhJztcclxuICB9O1xyXG5cclxufVxyXG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+var _odataRouter = require("./odataRouter");
+
+_defaults(exports, _interopExportWildcard(_odataRouter, _defaults));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7MkJBQWMsZUFBZSIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gXCIuL29kYXRhUm91dGVyXCI7XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
