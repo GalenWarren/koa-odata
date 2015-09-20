@@ -12,7 +12,7 @@ export class ODataRouter extends Router {
 
     // map collection routes without keys
     this.get( "/:collectionName", function*() {
-      this.body = "Hello OData 2";
+      this.body = `Returning data for ${this.params.collectionName}`;
     });
 
   }
