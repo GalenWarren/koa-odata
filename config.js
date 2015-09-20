@@ -24,12 +24,12 @@ System.config({
   },
 
   map: {
-    "GalenWarren/node-odata-generic": "github:GalenWarren/node-odata-generic@master",
+    "GalenWarren/node-odata-core": "github:GalenWarren/node-odata-core@master",
     "babel": "npm:babel-core@5.8.24",
     "babel-runtime": "npm:babel-runtime@5.8.24",
     "core-js": "npm:core-js@1.1.4",
     "koa-router": "npm:koa-router@5.1.2",
-    "github:GalenWarren/node-odata-generic@master": {
+    "github:GalenWarren/node-odata-core@master": {
       "escodegen": "npm:escodegen@1.7.0",
       "lodash": "npm:lodash@3.10.1",
       "odata-parser": "npm:odata-parser@1.2.1"
