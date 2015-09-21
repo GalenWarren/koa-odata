@@ -1,4 +1,5 @@
 import koa from "koa";
+import {} from "GalenWarren/node-odata-core";
 
 export function odata( options ) {
 
@@ -6,6 +7,8 @@ export function odata( options ) {
 
   // handle requests
   app.use( function *() {
+    this.body =
+
     this.body = `request for path=${this.request.path} and querystring=${this.request.querystring}`;
   });
 
