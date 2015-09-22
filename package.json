@@ -27,7 +27,6 @@
     "main": "index.js",
     "format": "cjs",
     "dependencies": {
-      "GalenWarren/node-odata-core": "github:GalenWarren/node-odata-core@master",
       "koa-router": "npm:koa-router@^5.1.2"
     },
     "devDependencies": {
@@ -36,13 +35,17 @@
       "core-js": "npm:core-js@^1.0.0"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "koa-router": "npm:koa-router@^5.1.2"
+  },
   "devDependencies": {
-    "bluebird": "^2.10.1",
-    "gulp": "^3.9.0",
-    "harmonize": "^1.4.4",
-    "json5": "^0.4.0",
-    "shabeco-build-tools": "0.0.3",
-    "systemjs": "^0.19.0"
+    "babel": "npm:babel-core@^5.8.21",
+    "babel-runtime": "npm:babel-runtime@^5.8.20",
+    "core-js": "npm:core-js@^1.0.0"
+  },
+  "main": "index.js",
+  "format": "cjs",
+  "directories": {
+    "lib": "dist/common"
   }
 }
