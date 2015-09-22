@@ -1,17 +1,21 @@
 import koa from "koa";
-import {} from "GalenWarren/node-odata-core";
+import {init,parse} from "./pipeline/index";
 
+export * from "./metadata/index";
+export * from "./providers/index";
+
+/**
+* The main odata function, returns a koa object that can be used directly
+* or mounted into another application
+*/
 export function odata( options ) {
 
   const app = koa();
 
-  // handle requests
-  app.use( function *() {
-    this.body =
+  // build up the pipeline
+  app.use(init(options));
+  app.use(parse(options));
 
-    this.body = `request for path=${this.request.path} and querystring=${this.request.querystring}`;
-  });
-
+  // done
   return app;
-
 }
