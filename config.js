@@ -28,7 +28,6 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.24",
     "core-js": "npm:core-js@1.1.4",
     "koa": "npm:koa@1.0.0",
-    "koa-router": "npm:koa-router@5.1.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -253,13 +252,6 @@ System.config({
     "npm:koa-is-json@1.0.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:koa-router@5.1.2": {
-      "debug": "npm:debug@2.2.0",
-      "http-errors": "npm:http-errors@1.3.1",
-      "koa-compose": "npm:koa-compose@2.3.0",
-      "methods": "npm:methods@1.1.1",
-      "path-to-regexp": "npm:path-to-regexp@1.2.1"
-    },
     "npm:koa@1.0.0": {
       "accepts": "npm:accepts@1.2.13",
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -325,9 +317,6 @@ System.config({
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:path-to-regexp@1.2.1": {
-      "isarray": "npm:isarray@0.0.1"
     },
     "npm:pbkdf2@3.0.4": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",

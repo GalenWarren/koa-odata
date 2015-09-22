@@ -27,16 +27,12 @@
     "main": "index.js",
     "format": "cjs",
     "dependencies": {
-      "koa-router": "npm:koa-router@^5.1.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.21",
       "babel-runtime": "npm:babel-runtime@^5.8.20",
       "core-js": "npm:core-js@^1.0.0"
     }
-  },
-  "dependencies": {
-    "koa-router": "npm:koa-router@^5.1.2"
   },
   "devDependencies": {
     "babel": "npm:babel-core@^5.8.21",
