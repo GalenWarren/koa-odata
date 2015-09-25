@@ -1,0 +1,7 @@
+"use strict";
+
+var _libIndex = require("../lib/index");
+
+var app = (0, _libIndex.odata)();
+app.listen(3000);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNhbXBsZS9hcHAuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7d0JBQW9CLGNBQWM7O0FBRWxDLElBQUksR0FBRyxHQUFHLHNCQUFPLENBQUM7QUFDbEIsR0FBRyxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQyIsImZpbGUiOiJzYW1wbGUvYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtvZGF0YX0gZnJvbSBcIi4uL2xpYi9pbmRleFwiO1xyXG5cclxudmFyIGFwcCA9IG9kYXRhKCk7XHJcbmFwcC5saXN0ZW4oMzAwMCk7XHJcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

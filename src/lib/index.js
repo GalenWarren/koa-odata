@@ -10,6 +10,8 @@ export * from "./providers/index";
 */
 export function odata( options ) {
 
+  debugger;
+
   const app = koa();
 
   // build up the pipeline

@@ -28,6 +28,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.24",
     "core-js": "npm:core-js@1.1.4",
     "koa": "npm:koa@1.0.0",
+    "odata-parser": "npm:odata-parser@1.2.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -299,6 +300,9 @@ System.config({
     },
     "npm:native-or-bluebird@1.2.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:odata-parser@1.2.1": {
+      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:on-finished@2.3.0": {
       "ee-first": "npm:ee-first@1.1.1",
