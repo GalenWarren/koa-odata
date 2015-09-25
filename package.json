@@ -2,8 +2,9 @@
   "name": "koa-odata",
   "version": "0.0.1",
   "description": "OData plugin for Koa",
-  "registry": "jspm",
+  "registry": "npm",
   "scripts": {
+    "start": "node --harmonize ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
