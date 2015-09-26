@@ -3,7 +3,7 @@
 
     source: "src/",
     target: "dist/",
-    modules: ["common", "system"],
+    modules: ["common"],
 
     group: {
 
@@ -30,7 +30,7 @@
 
   debug: {
 
-    target: "debug.js"
+    build: true
 
   },
 
@@ -38,6 +38,8 @@
 
     name: "api.json"
 
-  }
+  },
+
+  main: "dist/common/sample/app.js"
 
 }
