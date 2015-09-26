@@ -9,5 +9,5 @@ export function init( options ) {
     this.state.odata = new ODataState( options );
     yield next;
   };
-  
+
 }
