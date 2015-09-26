@@ -1,6 +1,8 @@
-import koa from "koa";
-import {init,parse} from "./pipeline/index";
+import {Container} from "aurelia-dependency-injection";
+import {Pipeline} from  "./pipeline/index";
+import _ from "lodash";
 
+// re-export stuff used by consumers
 export * from "./metadata/index";
 export * from "./providers/index";
 
@@ -10,14 +12,13 @@ export * from "./providers/index";
 */
 export function odata( options ) {
 
-  debugger;
+  // set defaults
+  const actualOptions = _.defaults( {}, options, {
 
-  const app = koa();
+  });
 
-  // build up the pipeline
-  app.use(init(options));
-  app.use(parse(options));
-
-  // done
-  return app;
+  // resolve the pipeline object from the container and return the koa app
+  const container = new Container();
+  container.registerInstance( "options", actualOptions );
+  return container.get(Pipeline).createApp();
 }

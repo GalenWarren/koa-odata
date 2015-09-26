@@ -1,10 +1,10 @@
 {
   "name": "koa-odata",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "OData plugin for Koa",
   "registry": "npm",
   "scripts": {
-    "start": "node --harmonize ",
+    "start": "node --harmony dist/common/sample/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -41,6 +41,8 @@
     "koa": "^1.0.0",
     "lodash": "^3.10.1",
     "odata-parser": "^1.2.1",
-    "dependency-injection": "https://github.com/aurelia/dependency-injection.git"
+    "aurelia-dependency-injection": "https://github.com/aurelia/dependency-injection.git",
+    "aurelia-metadata": "https://github.com/aurelia/metadata.git",
+    "aurelia-logging": "https://github.com/aurelia/logging.git"
   }
 }

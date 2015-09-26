@@ -1,16 +1,32 @@
 import parser from "odata-parser";
+import {inject} from "aurelia-dependency-injection";
+import {PipelineComponent} from "./base";
+import {Parameters} from "../parameters/index";
 
 /**
-* Parse component
+* The pipeline component to parse the odata request
 */
+@inject("options", Parameters)
+export class ParsePipelineComponent extends PipelineComponent {
 
-export function parse( options ) {
+  /**
+  * Construction
+  */
+  constructor( options, parameters ) {
+    super(options);
+    this.parameters = parameters;
+  }
 
-  return function *() {
+  /**
+  * Returns a koa middleware function that parses the request
+  */
+  *process( next, context ) {
 
-//    this.body = JSON.stringify(parser.parse(this.request.querystring));
-    this.body = this.request.path;
+    yield next;
 
-  };
+    //    this.body = JSON.stringify(parser.parse(this.request.querystring));
+    context.body = context.request.path;
+
+  }
 
 }
