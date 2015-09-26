@@ -1,45 +1,49 @@
 {
+  main: "dist/common/sample/app.js",
+
   transpile: {
 
-    source: "src/",
+    sourceRoot: "src/",
     target: "dist/",
     modules: ["common"],
 
-    group: {
+    babel: {
 
-      babel: {
-
-        moduleIds: false,
-        comments: false,
-        compact: false,
-        stage:2,
-        optional: [
-            "es7.decorators",
-            "es7.classProperties",
-            "es7.asyncFunctions"
-        ],
-        blacklist: [
-            "regenerator"
-        ]
-
-      }
+      moduleIds: false,
+      comments: false,
+      compact: false,
+      stage:2,
+      optional: [
+          "es7.decorators",
+          "es7.classProperties",
+          "es7.asyncFunctions"
+      ],
+      blacklist: [
+          "regenerator"
+      ]
 
     }
 
   },
 
   debug: {
-
     build: true
-
   },
 
   doc: {
-
     name: "api.json"
-
   },
 
-  main: "dist/common/sample/app.js"
+  test: {
+
+    source: "test/**/*.spec.js",
+
+    coverage: {
+      thresholds: {
+        global: 90
+      }
+    }
+
+  }
 
 }

@@ -3,15 +3,11 @@ import {ExpressionVisitor} from "./expressionVisitor";
 export class ParameterizingVisitor extends ExpressionVisitor {
 
   /**
-  * The parameters that are detected
-  */
-  parameters = []
-
-  /**
   * Construct with the name of the expression that will hold the parms
   */
   constructor( parametersName = "parms" ) {
     super();
+    this.parameters = [];
     this.parametersName = parametersName;
   }
 

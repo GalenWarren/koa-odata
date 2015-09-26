@@ -8,10 +8,8 @@ export const models = {};
 */
 export class ModelMetadata {
 
-  entities = []
-
   constructor() {
-
+    this.entities = [];
   }
 
   /**

@@ -29,7 +29,7 @@
     "gulp": "^3.9.0",
     "harmonize": "^1.4.4",
     "json5": "^0.4.0",
-    "shabeco-build-tools": "0.0.8"
+    "shabeco-build-tools": "0.0.11"
   },
   "main": "index.js",
   "format": "cjs",

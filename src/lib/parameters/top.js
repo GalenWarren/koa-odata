@@ -11,7 +11,7 @@ export class TopParameter extends Parameter {
   * Construction
   */
   constructor( options ) {
-    super( options, "$key");
+    super( options, "$top");
   }
 
 }

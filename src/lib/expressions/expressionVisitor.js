@@ -28,7 +28,6 @@ export class ExpressionVisitor {
         case "property":
           return this.visitProperty( node );
         default:
-          debugger;
           return node;
       }
     }
