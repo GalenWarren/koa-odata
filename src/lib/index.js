@@ -1,5 +1,5 @@
 import {Container} from "aurelia-dependency-injection";
-import {Pipeline} from  "./pipeline/index";
+import {Pipeline} from "./pipeline/index";
 import _ from "lodash";
 
 // re-export stuff used by consumers

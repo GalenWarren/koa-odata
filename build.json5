@@ -1,29 +1,29 @@
 {
   main: "dist/common/sample/app.js",
 
-  transpile: {
+  babel: {
+    moduleIds: false,
+    comments: false,
+    compact: false,
+    stage:2,
+    optional: [
+        "es7.decorators",
+        "es7.classProperties",
+        "es7.asyncFunctions"
+    ],
+    blacklist: [
+        "regenerator"
+    ]
+  },
 
+  istanbul: {
+    includeUntested: true
+  },
+
+  transpile: {
     sourceRoot: "src/",
     target: "dist/",
-    modules: ["common"],
-
-    babel: {
-
-      moduleIds: false,
-      comments: false,
-      compact: false,
-      stage:2,
-      optional: [
-          "es7.decorators",
-          "es7.classProperties",
-          "es7.asyncFunctions"
-      ],
-      blacklist: [
-          "regenerator"
-      ]
-
-    }
-
+    modules: ["common"]
   },
 
   debug: {
@@ -35,15 +35,17 @@
   },
 
   test: {
-
-    source: "test/**/*.spec.js",
-
+    rootFolder: "test/",
+    source: "test/src/**/*.spec.js",
+    targetFolder: "test/dist/",
+    target: "test/dist/**/*.spec.js",
     coverage: {
-      thresholds: {
-        global: 90
+      enforceThresholds: {
+        thresholds: {
+          global: 90
+        }
       }
     }
-
   }
 
 }

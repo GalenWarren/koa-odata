@@ -1,0 +1,12 @@
+"use strict";
+
+var _distCommonLibModel = require("../../../../dist/common/lib/model");
+
+describe("A suite", function () {
+  it("contains spec with an expectation", function () {
+
+    var x = 0;
+    x.should.equal(0);
+  });
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBpcGVsaW5lL2luaXQuc3BlYy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztrQ0FBeUMsbUNBQW1DOztBQUU1RSxRQUFRLENBQUMsU0FBUyxFQUFFLFlBQVc7QUFDN0IsSUFBRSxDQUFDLG1DQUFtQyxFQUFFLFlBQVc7O0FBRWpELFFBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztBQUNWLEtBQUMsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDO0dBRW5CLENBQUMsQ0FBQztDQUNKLENBQUMsQ0FBQyIsImZpbGUiOiJwaXBlbGluZS9pbml0LnNwZWMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge2VudGl0eSxwcm9wZXJ0eSxuYXZpZ2F0aW9ufSBmcm9tIFwiLi4vLi4vLi4vLi4vZGlzdC9jb21tb24vbGliL21vZGVsXCI7XG5cbmRlc2NyaWJlKFwiQSBzdWl0ZVwiLCBmdW5jdGlvbigpIHtcbiAgaXQoXCJjb250YWlucyBzcGVjIHdpdGggYW4gZXhwZWN0YXRpb25cIiwgZnVuY3Rpb24oKSB7XG5cbiAgICBsZXQgeCA9IDA7XG4gICAgeC5zaG91bGQuZXF1YWwoMCk7XG5cbiAgfSk7XG59KTtcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
