@@ -38,7 +38,6 @@
     "gulp-shell": "^0.4.3",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-yuidoc": "^0.1.2",
-    "harmonize": "^1.4.4",
     "jshint-stylish": "^2.0.1",
     "json5": "^0.4.0",
     "object.assign": "^4.0.1",
@@ -53,11 +52,12 @@
   },
   "jspm": true,
   "dependencies": {
+    "aurelia-dependency-injection": "https://github.com/aurelia/dependency-injection.git",
+    "aurelia-logging": "https://github.com/aurelia/logging.git",
+    "aurelia-metadata": "https://github.com/aurelia/metadata.git",
+    "harmonize": "^1.4.4",
     "koa": "^1.0.0",
     "lodash": "^3.10.1",
-    "odata-parser": "^1.2.1",
-    "aurelia-dependency-injection": "https://github.com/aurelia/dependency-injection.git",
-    "aurelia-metadata": "https://github.com/aurelia/metadata.git",
-    "aurelia-logging": "https://github.com/aurelia/logging.git"
+    "odata-parser": "^1.2.1"
   }
 }

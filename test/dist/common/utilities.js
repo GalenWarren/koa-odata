@@ -1,0 +1,12 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sourceRequire = sourceRequire;
+var path = require("path");
+
+function sourceRequire(moduleName) {
+  return require(path.join(__dirname, "../../../dist/common/", moduleName));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInV0aWxpdGllcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQSxJQUFJLElBQUksR0FBRyxPQUFPLENBQUMsTUFBTSxDQUFDLENBQUM7O0FBS3BCLFNBQVMsYUFBYSxDQUFFLFVBQVUsRUFBRztBQUMxQyxTQUFPLE9BQU8sQ0FBRSxJQUFJLENBQUMsSUFBSSxDQUFFLFNBQVMsRUFBRSx1QkFBdUIsRUFBRSxVQUFVLENBQUUsQ0FBQyxDQUFDO0NBQzlFIiwiZmlsZSI6InV0aWxpdGllcy5qcyIsInNvdXJjZXNDb250ZW50IjpbInZhciBwYXRoID0gcmVxdWlyZShcInBhdGhcIik7XHJcblxyXG4vKipcclxuKiBIZWxwZXIgdG8gbGFvZCBzb3VyY2UgbW9kdWxlc1xyXG4qL1xyXG5leHBvcnQgZnVuY3Rpb24gc291cmNlUmVxdWlyZSggbW9kdWxlTmFtZSApIHtcclxuICByZXR1cm4gcmVxdWlyZSggcGF0aC5qb2luKCBfX2Rpcm5hbWUsIFwiLi4vLi4vLi4vZGlzdC9jb21tb24vXCIsIG1vZHVsZU5hbWUgKSk7XHJcbn1cclxuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

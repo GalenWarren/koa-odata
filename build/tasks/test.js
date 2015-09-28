@@ -9,14 +9,6 @@ var taskUtilities = require("../utilities");
 var _ = require("lodash");
 var config = require("../build.json5");
 
-// register chai should
-require("chai").should();
-
-// create a global hook to load source modules
-global.sourceRequire = function( moduleName ) {
-  return require( path.join( __dirname, "../../", config.targetRoot, "common", moduleName ));
-}
-
 // create the clean task
 gulp.task('test-clean', function() {
   return gulp.src(config.test.targetFolder)
@@ -36,7 +28,7 @@ gulp.task("test-coverage-init", function () {
 
 // run tests and generate coverage reports
 gulp.task("test-run", ["test-coverage-init"], function () {
-  return gulp.src(config.test.target)
+  return gulp.src(config.test.specs)
     .pipe(mocha())
     .pipe(istanbul.writeReports())        // Creating the reports after tests ran
     .pipe(istanbul.enforceThresholds(config.test.coverage.enforceThresholds)) // Enforce coverage

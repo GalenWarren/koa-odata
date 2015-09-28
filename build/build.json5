@@ -31,9 +31,10 @@
   test: {
 
     rootFolder: "test/",
-    source: "test/src/**/*.spec.js",
+    source: "test/src/**/*.js",
     targetFolder: "test/dist/",
     target: "test/dist/**/*.spec.js",
+    specs: "test/dist/**/*.spec.js",
     coverage: {
 
       source: "dist/common/lib/**/*.js",
