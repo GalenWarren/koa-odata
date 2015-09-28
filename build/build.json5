@@ -1,5 +1,9 @@
 {
   main: "dist/common/sample/app.js",
+  sourceRoot: "src/",
+  source: "src/**/*.js",
+  targetRoot: "dist/",
+  target: "dist/**/*.js",
 
   babel: {
     moduleIds: false,
@@ -20,32 +24,26 @@
     includeUntested: true
   },
 
-  transpile: {
-    sourceRoot: "src/",
-    target: "dist/",
-    modules: ["common"]
-  },
-
-  debug: {
-    build: true
-  },
-
   doc: {
     name: "api.json"
   },
 
   test: {
+
     rootFolder: "test/",
     source: "test/src/**/*.spec.js",
     targetFolder: "test/dist/",
     target: "test/dist/**/*.spec.js",
     coverage: {
+
+      source: "dist/common/lib/**/*.js",
       enforceThresholds: {
         thresholds: {
           global: 90
         }
       }
     }
+
   }
 
 }
