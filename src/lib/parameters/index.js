@@ -1,10 +1,19 @@
 import {singleton,inject} from "aurelia-dependency-injection";
 import parser from "odata-parser";
+import {InitializingVisitor} from "../expressions/visitors/index";
 import {TopParameter} from "./top";
 import _ from "lodash";
 
+
+* Class to facilitate parameter processing
+*/
 @inject( TopParameter )
 export class Parameters {
+
+  /**
+  * The name we'll use for the parameters
+  */
+  const parametersName = "parameters"
 
   /**
   * The map of odata parameters that we can parse
@@ -15,10 +24,6 @@ export class Parameters {
   * Construction
   */
   constructor( ...parameters ) {
-
-    debugger;
-
-    // create the parameters map
     this.parameters = new Map( _(parameters).map( p => [ p.key, p ]).value());
   }
 
@@ -42,6 +47,13 @@ export class Parameters {
       // yes, parse the query string using odata-parser library ...
       const ast = parser.parse( context.request.querystring);
 
+      // do the initial processing, including factoring out literals
+      const initializingVisitor = new InitializingVisitor( parametersName );
+      ast = initializingVisitor.visit( ast );
+
+      // initializingVisitor.parameters holds the parameter values!
+
+      // now, process the expression
       expression = _(ast).reduce( ( inputExpression, value, key ) => {
 
         // do we support this parameter?
