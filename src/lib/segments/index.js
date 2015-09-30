@@ -1,5 +1,4 @@
 import {singleton,inject} from "aurelia-dependency-injection";
-import {ErrorWithStatus} from "../errorWithStatus";
 import {EntitiesSegment} from "./entities";
 import {ModelMetadata} from "../metadata/index";
 import {parsePathSegment} from "./utilities";
@@ -18,10 +17,10 @@ export class Segments {
   /**
   * Parse a path string and return an array of segment objects
   */
-  parse( path, pipeline ) {
+  parse( context, pipeline ) {
 
     // break the path apart into segments, separated by /
-    const pathSegments = _.filter(path.split("/"));
+    const pathSegments = _.filter(context.request.path.split("/"));
 
     // parse and return an array of segment objects
     return _(pathSegments).transform( (segments, pathSegment ) => {
@@ -37,7 +36,7 @@ export class Segments {
 
       // throw error if the segment is unrecognized
       if (!segment) {
-        throw new ErrorWithStatus( `Unrecognized segment ${pathSegment}`, 400);
+        context.throw(`Unrecognized segment ${pathSegment}`, 400);
       }
 
       // we have a valid segment, add it

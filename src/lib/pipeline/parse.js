@@ -1,4 +1,3 @@
-import parser from "odata-parser";
 import {inject} from "aurelia-dependency-injection";
 import {PipelineComponent} from "./base";
 import {Segments} from "../segments/index";
@@ -30,18 +29,11 @@ export class ParsePipelineComponent extends PipelineComponent {
     context.state.odata = new PipelineState();
 
     // parse the segments
-    context.state.odata.segments = this.segments.parse( context.request.path, pipeline );
+    context.state.odata.segments = this.segments.parse( context, pipeline );
 
-    // is query string supplied?
-    if (context.request.querystring) {
-
-      debugger;
-
-      // yes, parse it
-      const parsed = parser.parse( context.request.querystring );
-      context.state.odata.expression = this.parameters.parse( parsed );
-    }
-
+    // yes, parse the expression
+    debugger;
+    context.state.odata.expression = this.parameters.parse( context, pipeline );
 
     yield next;
 
