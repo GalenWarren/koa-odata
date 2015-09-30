@@ -17,9 +17,7 @@ export class Segments {
   /**
   * Parse a path string and return an array of segment objects
   */
-  parse( path, modelMetadata ) {
-
-    debugger;
+  parse( path, pipeline ) {
 
     // break the path apart into segments, separated by /
     const pathSegments = _.filter(path.split("/"));
@@ -31,10 +29,10 @@ export class Segments {
       const segment = segments.length ?
 
         // if we have existing segments, call last one in chain to process
-        _.last(segments).constructor.parse( pathSegment, segments, modelMetadata ) :
+        _.last(segments).constructor.parse( pathSegment, segments, pipeline ) :
 
         // if no existing segments, then just process with the top-level ones
-        parsePathSegment( pathSegment, rootSegmentClasses, segments, modelMetadata);
+        parsePathSegment( pathSegment, rootSegmentClasses, segments, pipeline);
 
       // throw error if the segment is unrecognized
       if (!segment) {

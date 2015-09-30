@@ -12,12 +12,17 @@ import {ParsePipelineComponent} from "./parse";
 export class Pipeline {
 
   /**
+  * The metadata for this pipeline's model
+  */
+  modelMetadata
+
+  /**
   * Construction
   */
   constructor( options, ...pipelineComponents ) {
-
     this.options = options;
     this.pipelineComponents = pipelineComponents;
+    this.modelMetadata = options.model;
   }
 
   /**

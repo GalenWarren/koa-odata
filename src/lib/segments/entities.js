@@ -34,7 +34,7 @@ export class EntitiesSegment extends Segment {
   * Called on each segment to parse the next segment,
   * allows each segment to be parsed in the proper context
   */
-  static parse( pathSegment, segments, modelMetadata ) {
+  static parse( pathSegment, segments, pipeline ) {
 
     // only process at root
     if (segments.length == 0) {
@@ -44,7 +44,7 @@ export class EntitiesSegment extends Segment {
       if (match) {
 
         // it looks like an entity, is it in the metadata?
-        const entityMetadata = modelMetadata.entityCollections[ collectionName ];
+        const entityMetadata = pipeline.modelMetadata.entityCollections[ collectionName ];
         if (entityMetadata) {
 
           // yes, create the segment
