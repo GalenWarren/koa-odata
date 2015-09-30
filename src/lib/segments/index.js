@@ -1,4 +1,5 @@
 import {singleton,inject} from "aurelia-dependency-injection";
+import {ErrorWithStatus} from "../errorWithStatus";
 import {EntitiesSegment} from "./entities";
 import {ModelMetadata} from "../metadata/index";
 import {parsePathSegment} from "./utilities";
@@ -36,7 +37,7 @@ export class Segments {
 
       // throw error if the segment is unrecognized
       if (!segment) {
-        throw new Error( `Unrecognized segment ${pathSegment}`);
+        throw new ErrorWithStatus( `Unrecognized segment ${pathSegment}`, 400);
       }
 
       // we have a valid segment, add it

@@ -1,5 +1,6 @@
 import koa from "koa";
 import {inject} from "aurelia-dependency-injection";
+import {ErrorPipelineComponent} from "./error";
 import {ParsePipelineComponent} from "./parse";
 
 /**
@@ -7,6 +8,7 @@ import {ParsePipelineComponent} from "./parse";
 */
 @inject(
   "options",
+  ErrorPipelineComponent,
   ParsePipelineComponent
 )
 export class Pipeline {
