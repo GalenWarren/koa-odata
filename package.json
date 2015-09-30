@@ -5,7 +5,8 @@
   "registry": "npm",
   "scripts": {
     "start": "node --harmony dist/common/sample/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test",
+    "test-debug": "iron-node node_modules/gulp/bin/gulp.js test"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "harmonize": "^1.4.4",
     "koa": "^1.0.0",
     "lodash": "^3.10.1",
-    "odata-parser": "^1.2.1"
+    "odata-parser": "^1.2.1",
+    "pluralize": "^1.2.1"
   }
 }

@@ -1,3 +1,8 @@
+import pluralize from "pluralize";
+
+/**
+* Class that holds entity metadata
+*/
 export class EntityMetadata {
 
   constructor({ name: name, model: model, properties: properties }) {

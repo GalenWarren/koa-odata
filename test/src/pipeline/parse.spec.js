@@ -1,24 +1,55 @@
-var Promise = require("bluebird");
-var testUtilities = require("../utilities");
-var pipelineUtilities = require("./utilities");
-var expect = require("chai").expect;
+import Promise from "bluebird";
+import {sourceRequire,container} from "../utilities";
+import {testPipelineProcess} from "./utilities";
+import {chai} from "chai";
 
-var parseModule = testUtilities.sourceRequire("lib/pipeline/parse");
-var stateModule = testUtilities.sourceRequire("lib/pipeline/state");
+const {ParsePipelineComponent} = sourceRequire("lib/pipeline/parse");
+const {PipelineState} = sourceRequire("lib/pipeline/state");
+const {EntitiesSegment} = sourceRequire("lib/segments/entities");
+const {modelMetadata} = sourceRequire("sample/model");
+
+debugger;
+
+const [match, collectionName, key ] = /(\w+)(\(([^)]+)\))?/.exec( "users" );
+
+/**
+* Helper to prepare for a test
+*/
+function prepareTest( path, querystring) {
+
+  debugger;
+
+  const parse = container.get(ParsePipelineComponent);
+  const context = {
+    state: {
+      odata: new PipelineState(modelMetadata)
+    },
+    request: {
+      path: path,
+      querystring: querystring
+    }
+  };
+  return [parse,context];
+}
+
 
 describe("ParsePipelineComponent", function() {
 
-  it("adds an instance of ODataState to the context state", function( done ) {
+  it("adds an instance of PipelineState to the context state", function( done ) {
 
-    const parse = new parseModule.ParsePipelineComponent({});
-    const context = {
-      state: {
-        odata: new stateModule.ODataState()
-      }
-    };
+    debugger;
 
-    pipelineUtilities.testPipelineProcess( init, context ).then( function() {
-      expect(context.state.odata).to.be.an.instanceOf(stateModule.ODataState);
+    const [parse, context] = prepareTest( "/users");
+
+    testPipelineProcess( parse, context ).then( function() {
+
+      debugger;
+
+      expect(context.state.odata.segments).to.be.instanceOf(Array);
+      expect(context.state.odata.segments.length).to.equal(1);
+      expect(context.state.odata.segments[1]).to.be.instanceOf(EntitiesSegment);
+      expect(context.state.odata.segments[1].metadata.name).to.equal("user");
+
     }).then( done, done );
 
   });

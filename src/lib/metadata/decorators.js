@@ -39,7 +39,7 @@ export function entity( options = {} ) {
 
     // create the entity object and add to model's entities
     const entity = new EntityMetadata({ name: options.name, model: model, properties: properties });
-    model.entities.push( entity );
+    model.entities[ entity.collectionName ] = entity;
 
     // store the metadata on the constructor so we can find it later
     constructor[entityMetadata] = entity;

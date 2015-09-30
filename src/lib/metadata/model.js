@@ -8,8 +8,16 @@ export const models = {};
 */
 export class ModelMetadata {
 
+  /**
+  * The map of entity collection names to entity type
+  */
+  entityCollections
+
+  /**
+  * @constructor
+  */
   constructor() {
-    this.entities = [];
+    this.entityCollections = {};
   }
 
   /**

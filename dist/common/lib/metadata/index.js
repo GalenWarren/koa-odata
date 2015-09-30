@@ -12,7 +12,11 @@ var _decorators = require("./decorators");
 
 _defaults(exports, _interopExportWildcard(_decorators, _defaults));
 
+var _entity = require("./entity");
+
+_defaults(exports, _interopExportWildcard(_entity, _defaults));
+
 var _model = require("./model");
 
 _defaults(exports, _interopExportWildcard(_model, _defaults));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9tZXRhZGF0YS9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OzBCQUFjLGNBQWM7Ozs7cUJBQ2QsU0FBUyIsImZpbGUiOiJsaWIvbWV0YWRhdGEvaW5kZXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tIFwiLi9kZWNvcmF0b3JzXCI7XG5leHBvcnQgKiBmcm9tIFwiLi9tb2RlbFwiO1xuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9tZXRhZGF0YS9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OzBCQUFjLGNBQWM7Ozs7c0JBQ2QsVUFBVTs7OztxQkFDVixTQUFTIiwiZmlsZSI6ImxpYi9tZXRhZGF0YS9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gXCIuL2RlY29yYXRvcnNcIjtcbmV4cG9ydCAqIGZyb20gXCIuL2VudGl0eVwiO1xuZXhwb3J0ICogZnJvbSBcIi4vbW9kZWxcIjtcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

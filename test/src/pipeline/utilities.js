@@ -1,4 +1,4 @@
-var Promise = require("bluebird");
+import Promise from "bluebird";
 
 /**
 * Helper to test a pipeline process method
