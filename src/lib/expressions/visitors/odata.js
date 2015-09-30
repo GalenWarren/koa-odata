@@ -10,7 +10,7 @@ const binaryOperators = new Set([
   "or"
 ]);
 
-export class ODataExpressionVisitor {
+export class ODataVisitor {
 
   /**
   * The main visit method, calls to specialized types based on type of node

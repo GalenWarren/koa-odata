@@ -4,16 +4,16 @@ import {InitializingVisitor} from "../expressions/visitors/index";
 import {TopParameter} from "./top";
 import _ from "lodash";
 
+/**
+* The name we'll use for the parameters
+*/
+const parametersName = "parameters";
 
+/**
 * Class to facilitate parameter processing
 */
 @inject( TopParameter )
 export class Parameters {
-
-  /**
-  * The name we'll use for the parameters
-  */
-  const parametersName = "parameters"
 
   /**
   * The map of odata parameters that we can parse
@@ -44,14 +44,15 @@ export class Parameters {
     // query string exists?
     if (context.request.querystring) {
 
+      debugger;
+
       // yes, parse the query string using odata-parser library ...
-      const ast = parser.parse( context.request.querystring);
+      let ast = parser.parse( context.request.querystring);
 
       // do the initial processing, including factoring out literals
       const initializingVisitor = new InitializingVisitor( parametersName );
       ast = initializingVisitor.visit( ast );
-
-      // initializingVisitor.parameters holds the parameter values!
+      context.state.odata.parameters = initializingVisitor.parameters;
 
       // now, process the expression
       expression = _(ast).reduce( ( inputExpression, value, key ) => {
