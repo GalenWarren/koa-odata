@@ -3,12 +3,6 @@
 * @class
 */
 export class PipelineState {
-
-  /**
-  * The metadata for the model being processed
-  */
-  modelMetadata
-
   /**
   * The segments
   */
@@ -18,12 +12,5 @@ export class PipelineState {
   * The expression
   */
   expression
-
-  /**
-  * @constructor
-  */
-  constructor( modelMetadata ) {
-    this.modelMetadata = modelMetadata;
-  }
 
 }

@@ -2,14 +2,14 @@ import {Segment} from "./base";
 import {parsePathSegment} from "./utilities";
 
 /**
+* The regex that we use, exposed for unit testing
+*/
+export const regex = /(\w+)(\(([^)]+)\))?/;
+
+/**
 * Class for an entities segment
 */
 export class EntitiesSegment extends Segment {
-
-  /**
-  * The regex that we use, exposed for unit testing
-  */
-  static regex = /(\w+)(\(([^)]+)\))?/
 
   /**
   * The metadata for this entity
@@ -40,7 +40,7 @@ export class EntitiesSegment extends Segment {
     if (segments.length == 0) {
 
       // look for a match on entityName with optional key
-      const [match, collectionName, key ] = this.regex.exec( pathSegment );
+      const [match, collectionName, key ] = regex.exec( pathSegment );
       if (match) {
 
         // it looks like an entity, is it in the metadata?

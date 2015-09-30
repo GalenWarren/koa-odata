@@ -27,7 +27,7 @@ export class ParsePipelineComponent extends PipelineComponent {
   *process( next, context, pipeline ) {
 
     // initialize the odata state
-    context.state.odata = new PipelineState( pipeline.modelMetadata );
+    context.state.odata = new PipelineState();
 
     // parse the segments
     context.state.odata.segments = this.segments.parse( context.request.path, pipeline );
@@ -35,12 +35,13 @@ export class ParsePipelineComponent extends PipelineComponent {
     // is query string supplied?
     if (context.request.querystring) {
 
+      debugger;
+
       // yes, parse it
       const parsed = parser.parse( context.request.querystring );
       context.state.odata.expression = this.parameters.parse( parsed );
     }
 
-    debugger;
 
     yield next;
 
