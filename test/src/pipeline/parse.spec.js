@@ -8,16 +8,10 @@ const {PipelineState} = sourceRequire("lib/pipeline/state");
 const {EntitiesSegment} = sourceRequire("lib/segments/entities");
 const {modelMetadata} = sourceRequire("sample/model");
 
-debugger;
-
-const [match, collectionName, key ] = /(\w+)(\(([^)]+)\))?/.exec( "users" );
-
 /**
 * Helper to prepare for a test
 */
 function prepareTest( path, querystring) {
-
-  debugger;
 
   const parse = container.get(ParsePipelineComponent);
   const context = {
@@ -35,15 +29,11 @@ function prepareTest( path, querystring) {
 
 describe("ParsePipelineComponent", function() {
 
-  it("adds an instance of PipelineState to the context state", function( done ) {
-
-    debugger;
+  it("adds a populated instance of PipelineState to the context state", function( done ) {
 
     const [parse, context] = prepareTest( "/users");
 
     testPipelineProcess( parse, context ).then( function() {
-
-      debugger;
 
       expect(context.state.odata.segments).to.be.instanceOf(Array);
       expect(context.state.odata.segments.length).to.equal(1);
