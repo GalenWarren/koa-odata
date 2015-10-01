@@ -2,18 +2,17 @@ import {singleton,inject} from "aurelia-dependency-injection";
 import parser from "odata-parser";
 import {InitializingVisitor} from "../expressions/visitors/index";
 import {TopParameter} from "./top";
+import {SelectParameter} from "./select";
 import {functionsName,collectionName} from "../expressions/utilities";
 import _ from "lodash";
 
 /**
-* The name we'll use for the parameters
-*/
-const parametersName = "parameters";
-
-/**
 * Class to facilitate parameter processing
 */
-@inject( TopParameter )
+@inject(
+  TopParameter,
+  SelectParameter
+)
 export class Parameters {
 
   /**

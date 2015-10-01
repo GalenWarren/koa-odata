@@ -1,6 +1,23 @@
 import _ from "lodash";
 
-export const functions = {
+/**
+* A functions class instance
+*/
+export class Functions {
+
+  /**
+  * @constructor
+  */
+  constructor() {
+
+  }
+
+  /**
+  * Gets a property value for the provided name
+  */
+  getProperty( name ) {
+    return 1;
+  }
 
   /**
   * Helper to resolve a lodash wrapper if needed
@@ -10,10 +27,17 @@ export const functions = {
   },
 
   /**
-  * Wrapper for top function
+  * Wrapper for top
   */
   top: function(collection, count) {
     return collection.take(count);
+  },
+
+  /**
+  * Wrapper for select
+  */
+  select: function(collection, predicate) {
+    return collection.filter(predicate);
   }
 
 };

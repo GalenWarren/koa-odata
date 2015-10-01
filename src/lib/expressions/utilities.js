@@ -59,3 +59,31 @@ export function createFunctionCall( functionName, args ) {
     "arguments": args
   };
 }
+
+/**
+* Creates ast for a property get operation
+*/
+export function createPropertyGet( propertyName ) {
+  return {
+    "type": "CallExpression",
+    "callee": {
+        "type": "MemberExpression",
+        "computed": false,
+        "object": {
+            "type": "Identifier",
+            "name": functionsName
+        },
+        "property": {
+            "type": "Identifier",
+            "name": "getName"
+        }
+    },
+    "arguments": [
+        {
+            "type": "Literal",
+            "value": "a",
+            "raw": "\"a\""
+        }
+    ]
+  }
+}
