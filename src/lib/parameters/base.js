@@ -1,5 +1,6 @@
-import {normalize} from "./utilities";
-
+/**
+* Base class for a query string parameter, i.e. $top
+*/
 export class Parameter {
 
   /**
@@ -9,13 +10,5 @@ export class Parameter {
     this.options = options;
     this.key = key;
   }
-
-  /**
-  * Normalize an expression
-  */
-  normalize( expression, parameters ) {
-    return normalize( expression, parameters );
-  }
-
 
 }

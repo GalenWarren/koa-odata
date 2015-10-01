@@ -6,11 +6,21 @@ export class PipelineState {
   /**
   * The segments
   */
-  segments
+  segments = null
 
   /**
   * The expression
   */
-  expression
+  expression = null
+
+  /**
+  * Parameters to be supplied to the expression
+  */
+  parameters = []
+
+  /**
+  * The function that will be called to execute get requests
+  */
+  get
 
 }

@@ -2,6 +2,9 @@ import koa from "koa";
 import {inject} from "aurelia-dependency-injection";
 import {ErrorPipelineComponent} from "./error";
 import {ParsePipelineComponent} from "./parse";
+import {PreparePipelineComponent} from "./prepare";
+import {ExecutePipelineComponent} from "./execute";
+import Cache from "lru-cache";
 
 /**
 * The main application pipeline object
@@ -9,9 +12,21 @@ import {ParsePipelineComponent} from "./parse";
 @inject(
   "options",
   ErrorPipelineComponent,
-  ParsePipelineComponent
+  ParsePipelineComponent,
+  PreparePipelineComponent,
+  ExecutePipelineComponent
 )
 export class Pipeline {
+
+  /**
+  * The configuration options
+  */
+  options
+
+  /**
+  * The pipeline components
+  */
+  components
 
   /**
   * The metadata for this pipeline's model
@@ -21,9 +36,9 @@ export class Pipeline {
   /**
   * Construction
   */
-  constructor( options, ...pipelineComponents ) {
+  constructor( options, ...components ) {
     this.options = options;
-    this.pipelineComponents = pipelineComponents;
+    this.components = components;
     this.modelMetadata = options.model;
   }
 
@@ -37,9 +52,9 @@ export class Pipeline {
 
     // add all the pipeline components to the app
     const pipeline = this;
-    for (let pipelineComponent of this.pipelineComponents) {
+    for (let component of this.components) {
       app.use( function *(next) {
-        yield * pipelineComponent.process( next, this, pipeline );
+        yield * component.process( next, this, pipeline );
       });
     }
 

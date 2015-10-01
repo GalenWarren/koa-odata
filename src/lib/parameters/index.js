@@ -2,6 +2,7 @@ import {singleton,inject} from "aurelia-dependency-injection";
 import parser from "odata-parser";
 import {InitializingVisitor} from "../expressions/visitors/index";
 import {TopParameter} from "./top";
+import {functionsName,collectionName} from "../expressions/utilities";
 import _ from "lodash";
 
 /**
@@ -37,8 +38,8 @@ export class Parameters {
     // generate the initial expression, which is just the collection
     // identifier (which is assumed to be a lodash wrapper)
     let expression = {
-      type: "Identifier",
-      name: "collection"
+      "type": "Identifier",
+      "name": collectionName
     };
 
     // query string exists?
@@ -50,9 +51,8 @@ export class Parameters {
       let ast = parser.parse( context.request.querystring);
 
       // do the initial processing, including factoring out literals
-      const initializingVisitor = new InitializingVisitor( parametersName );
+      const initializingVisitor = new InitializingVisitor( context.state.odata.parameters );
       ast = initializingVisitor.visit( ast );
-      context.state.odata.parameters = initializingVisitor.parameters;
 
       // now, process the expression
       expression = _(ast).reduce( ( inputExpression, value, key ) => {
@@ -73,15 +73,8 @@ export class Parameters {
 
     }
 
-    // return the final ast
-    return {
-      type: "Program",
-      body: {
-        type: "ExpressionStatement",
-        expression: expression
-      },
-      sourceType: "script"
-    };
+    // return the final expression
+    return expression;
 
   }
 

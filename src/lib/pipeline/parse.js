@@ -17,7 +17,7 @@ export class ParsePipelineComponent extends PipelineComponent {
   constructor( options, segments, parameters ) {
     super(options);
     this.segments = segments;
-    this.parameters = parameters; 
+    this.parameters = parameters;
   }
 
   /**
@@ -35,8 +35,6 @@ export class ParsePipelineComponent extends PipelineComponent {
     context.state.odata.expression = this.parameters.parse( context, pipeline );
 
     yield next;
-
-    console.log(JSON.stringify(context.state.odata.expression,null,5));
 
   }
 
