@@ -9,7 +9,7 @@ import _ from "lodash";
 export class ErrorPipelineComponent extends PipelineComponent {
 
   /**
-  * Construction
+  * Construction  
   */
   constructor( options ) {
     super(options);
