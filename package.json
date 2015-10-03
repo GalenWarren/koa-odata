@@ -52,17 +52,14 @@
   "directories": {
     "lib": "dist/common/lib"
   },
-  "jspm": true,
   "dependencies": {
     "aurelia-dependency-injection": "https://github.com/aurelia/dependency-injection.git",
     "aurelia-logging": "https://github.com/aurelia/logging.git",
     "aurelia-metadata": "https://github.com/aurelia/metadata.git",
     "escodegen": "^1.7.0",
-    "harmonize": "^1.4.4",
     "koa": "^1.0.0",
     "lodash": "^3.10.1",
     "lru-cache": "^2.7.0",
-    "odata-parser": "^1.2.1",
-    "pluralize": "^1.2.1"
+    "odata-parser": "^1.2.1"
   }
 }

@@ -1,5 +1,3 @@
-import pluralize from "pluralize";
-
 /**
 * Class that holds entity metadata
 */

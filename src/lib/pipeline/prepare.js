@@ -26,6 +26,9 @@ export class PreparePipelineComponent extends PipelineComponent {
   */
   *process( next, context, pipeline ) {
 
+    // remove!
+    console.log( `Expression: ${context.state.odata.expression}`);
+
     // parse the function to create the function code
     const functionCode = escodegen.generate({
       "type": "BlockStatement",

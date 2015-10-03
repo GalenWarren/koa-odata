@@ -22,21 +22,21 @@ export class Functions {
   /**
   * Helper to resolve a lodash wrapper if needed
   */
-  value: function( obj ) {
+  value( obj ) {
     return _.isFunction( obj.value ) ? obj.value() : obj;
-  },
+  }
 
   /**
   * Wrapper for top
   */
-  top: function(collection, count) {
+  top(collection, count) {
     return collection.take(count);
-  },
+  }
 
   /**
   * Wrapper for select
   */
-  select: function(collection, predicate) {
+  select(collection, predicate) {
     return collection.filter(predicate);
   }
 

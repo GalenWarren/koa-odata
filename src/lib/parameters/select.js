@@ -21,6 +21,7 @@ export class SelectParameter extends Parameter {
   */
   parse( value, expression, context, pipeline ) {
 
+    /*
     const  new TranslatingVisitor().visit(value);
     const x = translatingVisitor.visit( value );
 
@@ -28,6 +29,7 @@ export class SelectParameter extends Parameter {
       expression,
       createParameter( context.state.odata.parameters, value )
     ]);
+    */
 
   }
 }
