@@ -15,14 +15,14 @@ export class Functions {
   /**
   * Gets a property value for the provided name
   */
-  getProperty( name ) {
-    return 1;
+  getProperty( instance, name ) {
+    return instance[name];
   }
 
   /**
   * Helper to resolve a lodash wrapper if needed
   */
-  value( obj ) {
+  getValue( obj ) {
     return _.isFunction( obj.value ) ? obj.value() : obj;
   }
 
@@ -37,7 +37,21 @@ export class Functions {
   * Wrapper for select
   */
   select(collection, predicate) {
+    throw "notimplemented";
+  }
+
+  /**
+  * Wrapper for filter
+  */
+  filter( collection, predicate ) {
     return collection.filter(predicate);
+  }
+
+  /**
+  * Equality check
+  */
+  eq( a, b ) {
+    return a === b;
   }
 
 };

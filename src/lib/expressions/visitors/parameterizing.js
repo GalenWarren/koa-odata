@@ -4,14 +4,13 @@ import {createParameter} from "../utilities";
 /**
 * Visitor that initializes the odata tree
 */
-export class InitializingVisitor extends ODataVisitor {
+export class ParameterizingVisitor extends ODataVisitor {
 
   /**
   * Construct with the name of the expression that will hold the parms
   */
-  constructor( parameters ) {
-    super();
-    this.parameters = parameters;
+  constructor( context, pipeline ) {
+    super( context, pipeline );
   }
 
   /**
@@ -20,7 +19,7 @@ export class InitializingVisitor extends ODataVisitor {
   visitLiteral( node ) {
 
     // capture the parameter
-    return createParameter( this.parameters, node.value );
+    return createParameter( this.context, node.value );
 
   }
 

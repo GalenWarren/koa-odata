@@ -14,10 +14,18 @@ export const functionsName = "f";
 export const collectionName = "c";
 
 /**
+* The name of the instance parm
+*/
+export function getInstanceName( depth ) {
+  return `i${depth}`;
+}
+
+/**
 * Creates an esprima style structure for a parameter expression
 */
-export function createParameter( parameters, value ) {
+export function createParameter( context, value ) {
 
+  const parameters = context.state.odata.parameters;
   const index = parameters.length;
   parameters.push( value );
 
@@ -61,29 +69,65 @@ export function createFunctionCall( functionName, args ) {
 }
 
 /**
+* Creates a function taking an instance as a parameter
+*/
+export function createInstanceFunction( expression, depth = 0 ) {
+
+  return {
+      "type": "FunctionExpression",
+      "id": null,
+      "params": [
+          {
+              "type": "Identifier",
+              "name": getInstanceName( depth )
+          }
+      ],
+      "defaults": [],
+      "body": {
+          "type": "BlockStatement",
+          "body": [
+              {
+                  "type": "ReturnStatement",
+                  "argument": expression
+              }
+          ]
+      },
+      "generator": false,
+      "expression": false
+  };
+}
+
+/**
 * Creates ast for a property get operation
 */
-export function createPropertyGet( propertyName ) {
+export function createPropertyGet( propertyName, depth = 0 ) {
+
   return {
+
     "type": "CallExpression",
     "callee": {
-        "type": "MemberExpression",
-        "computed": false,
-        "object": {
-            "type": "Identifier",
-            "name": functionsName
-        },
-        "property": {
-            "type": "Identifier",
-            "name": "getName"
-        }
+      "type": "MemberExpression",
+      "computed": false,
+      "object": {
+          "type": "Identifier",
+          "name": functionsName
+      },
+      "property": {
+          "type": "Identifier",
+          "name": "getProperty"
+      }
     },
     "arguments": [
-        {
-            "type": "Literal",
-            "value": "a",
-            "raw": "\"a\""
-        }
+      {
+        "type": "Identifier",
+        "name": getInstanceName( depth )
+      },
+      {
+          "type": "Literal",
+          "value": propertyName,
+          "raw": propertyName
+      }
     ]
-  }
+  };
+
 }

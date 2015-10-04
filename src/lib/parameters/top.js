@@ -1,6 +1,7 @@
 import {inject} from "aurelia-dependency-injection";
 import {Parameter} from "./base";
 import {createParameter,createFunctionCall} from "../expressions/utilities";
+import {ParameterizingVisitor} from "../expressions/visitors/parameterizing";
 
 /**
 * Model for thd $top parameter
@@ -12,7 +13,7 @@ export class TopParameter extends Parameter {
   * Construction
   */
   constructor( options ) {
-    super( options, "$top");
+    super( options, "$top", 10);
   }
 
   /**
@@ -22,7 +23,10 @@ export class TopParameter extends Parameter {
 
     return createFunctionCall( "top", [
       expression,
-      createParameter( context.state.odata.parameters, value )
+      new ParameterizingVisitor( context, pipeline).visit({
+        type: "literal",
+        value: value
+      })
     ]);
 
   }

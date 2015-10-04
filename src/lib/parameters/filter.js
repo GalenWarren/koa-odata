@@ -1,19 +1,19 @@
 import {inject} from "aurelia-dependency-injection";
 import {Parameter} from "./base";
-import {createParameter,createFunctionCall} from "../expressions/utilities";
+import {createFunctionCall,createInstanceFunction} from "../expressions/utilities";
 import {TranslatingVisitor} from "../expressions/visitors/translating";
 
 /**
-* Model for thd $top parameter
+* Model for the $filter parameter
 */
 @inject("options")
-export class SelectParameter extends Parameter {
+export class FilterParameter extends Parameter {
 
   /**
   * Construction
   */
   constructor( options ) {
-    super( options, "$select", 20);
+    super( options, "$filter", 0);
   }
 
   /**
@@ -21,9 +21,9 @@ export class SelectParameter extends Parameter {
   */
   parse( value, expression, context, pipeline ) {
 
-    return createFunctionCall( "select", [
+    return createFunctionCall( "filter", [
       expression,
-      new TranslatingVisitor( context, pipeline).visit( value )
+      createInstanceFunction( new TranslatingVisitor( context, pipeline ).visit( value ))
     ]);
 
   }

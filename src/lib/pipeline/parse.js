@@ -5,8 +5,6 @@ import {Parameters} from "../parameters/index";
 import {PipelineState} from "./state";
 import _ from "lodash";
 
-debugger;
-
 /**
 * The pipeline component to parse the odata request
 */

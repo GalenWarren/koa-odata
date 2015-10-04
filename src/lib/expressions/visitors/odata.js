@@ -1,3 +1,5 @@
+import {createParameter,createFunctionCall,createPropertyGet} from "../utilities";
+
 // the binary operators
 const binaryOperators = new Set([
   "eq",
@@ -11,6 +13,14 @@ const binaryOperators = new Set([
 ]);
 
 export class ODataVisitor {
+
+  /**
+  *  @constructor
+  */
+  constructor( context, pipeline ) {
+    this.context = context;
+    this.pipeline = pipeline;
+  }
 
   /**
   * The main visit method, calls to specialized types based on type of node
@@ -27,10 +37,11 @@ export class ODataVisitor {
           return this.visitLiteral( node );
         case "property":
           return this.visitProperty( node );
-        default:
-          return node;
       }
     }
+
+    // we don't know what to do here ...
+    throw new Error( `OData node ${JSON.stringify(node)} not handled`);
   }
 
   /**
@@ -44,7 +55,7 @@ export class ODataVisitor {
   * Visit a property expression
   */
   visitProperty( node ) {
-    return node;
+    return createPropertyGet( node.name );
   }
 
   /**

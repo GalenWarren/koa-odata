@@ -1,8 +1,8 @@
 import {singleton,inject} from "aurelia-dependency-injection";
 import parser from "odata-parser";
-import {InitializingVisitor} from "../expressions/visitors/index";
 import {TopParameter} from "./top";
 import {SelectParameter} from "./select";
+import {FilterParameter} from "./filter";
 import {functionsName,collectionName} from "../expressions/utilities";
 import _ from "lodash";
 
@@ -11,7 +11,8 @@ import _ from "lodash";
 */
 @inject(
   TopParameter,
-  SelectParameter
+  SelectParameter,
+  FilterParameter
 )
 export class Parameters {
 
@@ -32,8 +33,6 @@ export class Parameters {
   */
   parse( context, pipeline ) {
 
-    debugger;
-
     // generate the initial expression, which is just the collection
     // identifier (which is assumed to be a lodash wrapper)
     let expression = {
@@ -44,32 +43,30 @@ export class Parameters {
     // query string exists?
     if (context.request.querystring) {
 
-      debugger;
-
       // yes, parse the query string using odata-parser library ...
-      let ast = parser.parse( context.request.querystring);
+      let ast = parser.parse( decodeURI( context.request.querystring ));
 
-      // do the initial processing, including factoring out literals
-      const initializingVisitor = new InitializingVisitor( context.state.odata.parameters );
-      ast = initializingVisitor.visit( ast );
+      // build up the expression from the query string ast
+      expression = _(ast)
+        .pairs()
+        .map( tuple => {
 
-      // now, process the expression
-      expression = _(ast).reduce( ( inputExpression, value, key ) => {
+          const [key, value] = tuple;
+          const parameter = this.parameters.get(key);
+          if (!parameter) {
+            throw new Error(`Parameter ${key} is not supported`);
+          }
+          tuple.push( parameter);
+          return tuple;
 
-        // do we support this parameter?
-        const parameter = this.parameters.get( key );
-        if (parameter) {
+        }, this )
+        .sortBy( tuple => tuple[2].order )
+        .reduce( ( inputExpression, tuple ) => {
 
-          // modify the expression to reflect this parameter
+          const [key, value, parameter] = tuple;
           return parameter.parse( value, inputExpression, context, pipeline );
 
-        }
-
-        // not handled, return expression unmodified
-        return inputExpression;
-
-      }, expression );
-
+        }, expression );
     }
 
     // return the final expression

@@ -1,7 +1,7 @@
 import {inject} from "aurelia-dependency-injection";
 import {PipelineComponent} from "./base";
 import {PipelineState} from "./state";
-import {functions} from "../expressions/functions";
+import {Functions} from "../expressions/functions";
 import _ from "lodash";
 
 /**
@@ -26,6 +26,8 @@ export class ExecutePipelineComponent extends PipelineComponent {
       { name: "Bob" },
       { name: "Steve" }
     ]);
+
+    const functions = new Functions();
 
     context.response.body = context.state.odata.get( collection, context.state.odata.parameters, functions );
 

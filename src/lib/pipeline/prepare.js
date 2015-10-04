@@ -27,7 +27,7 @@ export class PreparePipelineComponent extends PipelineComponent {
   *process( next, context, pipeline ) {
 
     // remove!
-    console.log( `Expression: ${context.state.odata.expression}`);
+    console.log( JSON.stringify( context.state.odata.expression, null, 5 ));
 
     // parse the function to create the function code
     const functionCode = escodegen.generate({
@@ -55,17 +55,22 @@ export class PreparePipelineComponent extends PipelineComponent {
                     },
                     "property": {
                         "type": "Identifier",
-                        "name": "value"
+                        "name": "getValue"
                     }
                 },
                 "arguments": [ context.state.odata.expression ]
               }
           }
         ]
+      },
+      {
+        format: {
+          compact: true
+        }
       }
     );
 
-    debugger;
+    console.log(functionCode);
 
     // try to find a cached function
     let get = this.cache.get(functionCode);
