@@ -1,2 +1,1 @@
-export * from "./interface";
-export * from "./arrayProvider";
+export * from "./array";

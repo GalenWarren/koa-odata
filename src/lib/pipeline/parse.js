@@ -31,7 +31,7 @@ export class ParsePipelineComponent extends PipelineComponent {
     // parse the segments
     context.state.odata.segments = this.segments.parse( context, pipeline );
 
-    // yes, parse the expression
+    // parse the expression
     context.state.odata.expression = this.parameters.parse( context, pipeline );
 
     yield next;
