@@ -29,7 +29,9 @@ export class ExecutePipelineComponent extends PipelineComponent {
 
     const functions = new Functions();
 
-    context.response.body = context.state.odata.get( collection, context.state.odata.parameters, functions );
+    context.response.body = {
+      value: context.state.odata.get( collection, context.state.odata.parameters, functions )
+    };
 
     yield next;
 
